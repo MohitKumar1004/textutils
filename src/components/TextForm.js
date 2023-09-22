@@ -57,10 +57,7 @@ export default function TextForm(props) {
     
     // Copy Complete Text
     const handleCopyClick=()=>{
-        const copy = document.getElementById("myBox")
-        copy.select()
-        navigator.clipboard.writeText(copy.value)
-        document.getSelection().removeAllRanges()
+        navigator.clipboard.writeText(text)
         props.showAlert("Copied to Clipboard!","success")
     }
 
@@ -275,7 +272,7 @@ export default function TextForm(props) {
             <div className='container m-1' style={{color: props.mode==='dark'?'white':'#042743'}}>
                 <h2>Your text summary</h2>
                 <p>
-                    Words count: {text.split(" ").filter((e)=>{return e!==""}).length}
+                    Words count: {text.split(/\s+/).filter((e)=>{return e!==""}).length}
                     <br/>
                     Characters count: {text.length}
                     <br/>
