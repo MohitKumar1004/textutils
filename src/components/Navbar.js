@@ -31,54 +31,11 @@ export default function Navbar(props) {
                 {props.aboutText}
               </Link>
             </li>
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="/"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Something else here
-                  </a>
-                </li>
-              </ul>
-            </li>
           </ul>
-          {/* <div className="bg-primary rounded mx-2" onClick={} style={{height:'40px',width:'30px'}}></div> */}
           <div className={`form-check form-switch text-${(props.mode==='light'?'dark':'light')}`}>
             <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
             <label className="form-check-label mx-3" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
           </div>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-primary" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </div>
     </nav>
