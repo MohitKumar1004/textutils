@@ -3,15 +3,9 @@ import React,{useState} from 'react'
 export default function TextForm(props) {
     const [text,setText]=useState('');
 
-    // // To undo
-    // const undo=()=>{
-    //     let item=localStorage.getItem(1,text)
-    //     setText(item)
-    // }
-
     // To convert HTML to JSX
     const handleHTMLtoJSXClick=()=>{
-        let newtext=text.replace("class=","className=").replace("href","to");
+        let newtext=text.replaceAll("class=","className=").replaceAll("href=","to=").replaceAll("for=","htmlFor=");
         setText(newtext);
         props.showAlert("HTML Converted to JSX!","success")
     };
@@ -249,7 +243,6 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor: props.mode==='dark'?'#13466e':'white',color: props.mode==='dark'?'white':'#042743'}}></textarea>
                 </div>
                 <div className="grid text-center">
-                    {/* <button className="btn btn-primary m-1 g-col-2" onClick={undo}>Undo</button> */}
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleUpClick}>Convert to Uppercase</button>
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleLoClick}>Convert to Lowercase</button>
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleSpeakClick} id="speaking">Speak</button>
@@ -266,7 +259,7 @@ export default function TextForm(props) {
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleMorseToAlphaCodeClick}>Convert from Morse Code to Alphabets</button>
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleHTMLtoJSXClick}>Convert from HTML to JSX</button>
                     <button disabled={text.length===0} className="btn btn-primary m-1 g-col-2" onClick={handleDownloadTxtFileClick}>Download as txt File</button>
-                    <input type="file" className="btn btn-primary m-1 g-col-2" accept="text/plain" onChange={handleReadTxtClick}/>
+                    <input type="file" className="input-group btn btn-primary m-1 g-col-2" accept="text/plain" onChange={handleReadTxtClick}/>
                 </div>
             </div>
             <div className='container m-1' style={{color: props.mode==='dark'?'white':'#042743'}}>
